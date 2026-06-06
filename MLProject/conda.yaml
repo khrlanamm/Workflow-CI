@@ -1,0 +1,11 @@
+name: crop-env
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - scikit-learn
+  - pandas
+  - numpy
+  - pip
+  - pip:
+      - mlflow
