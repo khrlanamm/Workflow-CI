@@ -41,7 +41,13 @@ jobs:
     - name: Build Docker Image
       run: |
         MODEL_PATH=$(find mlruns -type d -name "model" | head -n 1)
-        mlflow models build-docker -m $MODEL_PATH -n khrlanamm/crop-recommendation-model:latest
+        if [ -z "$MODEL_PATH" ]; then
+          echo "Error: Model path not found. Dumping mlruns structure:"
+          ls -R mlruns/
+          exit 1
+        fi
+        echo "Found model at: $MODEL_PATH"
+        mlflow models build-docker -m "$MODEL_PATH" -n "khrlanamm/crop-recommendation-model:latest"
 
     - name: Push Docker Image
       run: |
