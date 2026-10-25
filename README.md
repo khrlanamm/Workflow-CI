@@ -37,3 +37,7 @@ docker run -p 5001:8080 khrlanamm/crop-recommendation-model:latest
 ```
 
 The container serves the model with MLflow's scoring server at `/invocations`.
+
+## License
+
+Code is released under the [MIT License](LICENSE). The data in `MLProject/dataset_preprocessing/` is derived from the public Crop Recommendation dataset and keeps its original terms.
